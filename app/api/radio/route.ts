@@ -10,8 +10,8 @@ export const dynamic = "force-dynamic";
  */
 export async function GET() {
   const apiUrl =
-    process.env.CASTER_API_URL?.trim() ??
-    process.env.NEXT_PUBLIC_CASTER_API_URL?.trim() ??
+    process.env.CASTER_API_URL?.trim() ||
+    process.env.NEXT_PUBLIC_CASTER_API_URL?.trim() ||
     casterStatusConfig.url;
   const apiToken =
     process.env.CASTER_API_TOKEN?.trim() ??

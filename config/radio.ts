@@ -29,12 +29,12 @@ export const casterPublicConfig = {
  */
 export const casterStatusConfig = {
   url:
-    process.env.CASTER_STATUS_URL?.trim() ??
-    process.env.NEXT_PUBLIC_CASTER_STATUS_URL?.trim() ??
+    process.env.CASTER_STATUS_URL?.trim() ||
+    process.env.NEXT_PUBLIC_CASTER_STATUS_URL?.trim() ||
     "https://morcast.caster.fm:19848/admin/publicstats.json",
   mountPoint:
-    process.env.CASTER_MOUNT_POINT?.trim() ??
-    process.env.NEXT_PUBLIC_CASTER_MOUNT_POINT?.trim() ??
+    process.env.CASTER_MOUNT_POINT?.trim() ||
+    process.env.NEXT_PUBLIC_CASTER_MOUNT_POINT?.trim() ||
     "/EmPX4",
 } as const;
 

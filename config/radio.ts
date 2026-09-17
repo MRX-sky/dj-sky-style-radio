@@ -21,6 +21,23 @@ export const casterPublicConfig = {
   STATION_ID: process.env.NEXT_PUBLIC_STATION_ID?.trim() ?? "",
 } as const;
 
+/**
+ * The public Caster.fm Icecast status endpoint for this station.
+ *
+ * The default was created from the server host and port shown in the station's
+ * Caster.fm dashboard. Override it only if Caster.fm changes those details.
+ */
+export const casterStatusConfig = {
+  url:
+    process.env.CASTER_STATUS_URL?.trim() ??
+    process.env.NEXT_PUBLIC_CASTER_STATUS_URL?.trim() ??
+    "https://morcast.caster.fm:19848/admin/publicstats.json",
+  mountPoint:
+    process.env.CASTER_MOUNT_POINT?.trim() ??
+    process.env.NEXT_PUBLIC_CASTER_MOUNT_POINT?.trim() ??
+    "/EmPX4",
+} as const;
+
 export const radioConfig = {
   streamUrl: casterPublicConfig.STREAM_URL,
   stationName: casterPublicConfig.STATION_NAME,
@@ -29,6 +46,7 @@ export const radioConfig = {
   casterWidgetChannelId: casterPublicConfig.WIDGET_CHANNEL_ID,
   requestTrackEndpoint:
     process.env.NEXT_PUBLIC_REQUEST_TRACK_ENDPOINT?.trim() ?? "",
+  requestShareUrl: casterPublicConfig.STATION_URL,
 } as const;
 
 export const stationFallback = {

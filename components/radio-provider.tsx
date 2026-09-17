@@ -58,7 +58,7 @@ export function RadioProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     void refreshMetadata();
-    const poll = window.setInterval(() => void refreshMetadata(), 30_000);
+    const poll = window.setInterval(() => void refreshMetadata(), 20_000);
     return () => window.clearInterval(poll);
   }, [refreshMetadata]);
 

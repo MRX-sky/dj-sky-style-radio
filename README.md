@@ -8,9 +8,9 @@ Modern responsive website for **DJ_SKY_STYLE RADIO**. It is built with Next.js, 
 
 - Large responsive hero and sticky mobile navigation
 - HTML5 live-stream player: play/pause, volume, mute, connection state, live equalizer and accessible controls
-- Safe Caster.fm server-side metadata adapter with 30-second updates for current track, history, listeners and online status
+- Live Caster.fm public-status adapter with current track, listeners and real playlist history (20-second refresh)
 - Editable schedule, radio description, social links and contacts
-- Track-request form that performs a real POST only after an endpoint is configured
+- Track-request form with mobile native sharing, plus optional Telegram / WhatsApp / Viber / SMS / e-mail actions
 - SEO metadata, Open Graph card, SVG favicon, web manifest and a small production PWA service worker
 - Graceful fallbacks: no metadata shows `DJ_SKY_STYLE RADIO / LIVE STREAM`; unavailable audio shows an error without breaking the site
 
@@ -71,14 +71,16 @@ If Caster.fm gives you a `data-channelId`, set `NEXT_PUBLIC_CASTER_CHANNEL_ID` a
 
 ### 2. Caster.fm metadata, listeners and history
 
-Caster.fm API availability and response fields can differ by account and plan, so no endpoint is guessed. Obtain the following from your Caster.fm dashboard, official documentation or support:
+This station already uses Caster.fm’s documented public Icecast status endpoint. It delivers the current track, listener count and recent playlist without a broadcaster password. The default server and mount point are in `/config/radio.ts` and are requested server-side by `/app/api/radio/route.ts`.
 
-1. The documented JSON endpoint for station status/now playing/history.
-2. Whether an authorization token is required and its exact authentication method.
-3. The station ID, if the documented API requires one.
-4. A sample JSON response from that endpoint.
+If Caster.fm changes its server later, override these optional values in `.env.local` or Vercel:
 
-Place the private server-side values in `.env.local`:
+```env
+CASTER_STATUS_URL=https://new-host:port/admin/publicstats.json
+CASTER_MOUNT_POINT=/new-mount
+```
+
+A separate documented private API can still be added with:
 
 ```env
 CASTER_API_URL=
@@ -101,8 +103,8 @@ Only use a `NEXT_PUBLIC_*` token if Caster.fm explicitly says it is safe to reve
 ### 3. Station and request settings
 
 - Player name and public station page: `/config/radio.ts`
-- The POST endpoint for track requests: `NEXT_PUBLIC_REQUEST_TRACK_ENDPOINT` in `.env.local`
-- The form sends JSON `{ name, artist, track, message }` only when that endpoint is set. It can point to your own API route, Telegram Bot relay, serverless function, etc.
+- Mobile app/contact destinations: `/config/request-links.ts` (Telegram, WhatsApp, Viber, SMS, e-mail)
+- Without an endpoint, phones open the native sharing menu; direct app buttons are configured in `/config/request-links.ts`. A custom POST endpoint can still receive `{ name, artist, track, message }`.
 
 ### 4. Socials and contacts
 

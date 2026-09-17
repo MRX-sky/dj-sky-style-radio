@@ -8,11 +8,11 @@ export const requestLinksConfig = {
   /** Telegram username without @, for example: dj_sky_style */
   telegramUsername: "",
   /** WhatsApp number: 380XXXXXXXXX */
-  whatsappPhone: "",
+  whatsappPhone: "380960522010",
   /** Viber number: 380XXXXXXXXX */
   viberPhone: "",
   /** SMS number: 380XXXXXXXXX */
   smsPhone: "",
   /** E-mail that receives music requests */
-  email: "",
+  email: "rudnikdenis26@gmail.com",
 } as const;

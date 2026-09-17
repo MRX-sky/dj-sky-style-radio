@@ -1,4 +1,4 @@
-import { AtSign, Instagram, Send } from "lucide-react";
+import { AtSign, Instagram, MessageCircle, Phone, Send } from "lucide-react";
 import { stationContent } from "@/config/content";
 import { contactDetails } from "@/config/socials";
 import { SocialLinks } from "@/components/social-links";
@@ -22,8 +22,10 @@ export function AboutSection() {
 export function ContactSection() {
   const contacts = [
     { label: "Електронна пошта", value: contactDetails.email, icon: AtSign, href: contactDetails.email ? `mailto:${contactDetails.email}` : "" },
+    { label: "Телефон", value: contactDetails.phone, icon: Phone, href: contactDetails.phone ? `tel:${contactDetails.phone}` : "" },
+    { label: "WhatsApp", value: contactDetails.phone, icon: MessageCircle, href: contactDetails.phone ? `https://wa.me/${contactDetails.phone.replace(/\D/g, "")}` : "" },
     { label: "Telegram", value: contactDetails.telegram, icon: Send, href: contactDetails.telegram },
-    { label: "Instagram", value: contactDetails.instagram, icon: Instagram, href: contactDetails.instagram },
+    { label: "Instagram", value: contactDetails.instagram, icon: Instagram, href: contactDetails.instagram ? `https://instagram.com/${contactDetails.instagram.replace(/^@/, "")}` : "" },
   ].filter((contact) => contact.value);
 
   return (

@@ -10,6 +10,7 @@ const navItems = [
   { label: "ЕФІР", href: "/radio" },
   { label: "РОЗКЛАД", href: "/schedule" },
   { label: "ІСТОРІЯ", href: "/history" },
+  { label: "МУЗИКА", href: "/music" },
   { label: "ПРО НАС", href: "/about" },
   { label: "КОНТАКТИ", href: "/contact" },
 ];

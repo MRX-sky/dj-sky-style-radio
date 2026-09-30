@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "Музична база — DJ_SKY_S
 export default function MusicPage() {
   return (
     <>
-      <PageHero index="6" eyebrow="ПЛЕЙЛИСТ СТАНЦІЇ" title="МУЗИЧНА" outline="БАЗА" description="Черга ваших ліцензованих треків із автоматичним переходом до наступної композиції." />
+      <PageHero index="6" eyebrow="ПЛЕЙЛИСТ СТАНЦІЇ" title="МУЗИЧНА" outline="БАЗА" description="36 MP3 у локальній черзі DJ_SKY_STYLE RADIO. Запускатор сам перемішує композиції та передає їх у прямий ефір." />
       <MusicLibraryPlayer />
     </>
   );

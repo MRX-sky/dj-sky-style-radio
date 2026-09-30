@@ -1,0 +1,9 @@
+{
+  "host": "morcast.caster.fm",
+  "port": 19848,
+  "mountPoint": "/EmPX4",
+  "username": "source",
+  "password": "ВСТАВТЕ_СВІЙ_ПАРОЛЬ_ТРАНСЛЯЦІЇ_З_CASTER_FM",
+  "bitrateKbps": 96,
+  "shuffle": true
+}

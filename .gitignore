@@ -23,3 +23,9 @@ pnpm-debug.log*
 
 # TypeScript
 *.tsbuildinfo
+
+# Local radio-broadcast files. Keep music and Caster credentials out of Git.
+/broadcast/caster.config.json
+/broadcast/music/*
+!/broadcast/music/.gitkeep
+/broadcast/runtime/
